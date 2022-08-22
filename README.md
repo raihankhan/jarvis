@@ -1,2 +1,2 @@
 # jarvis
-jarvis is a cli tool that provides random motivational quotes
+jarvis is a cli tool that enables several useful command line operations from terminal
