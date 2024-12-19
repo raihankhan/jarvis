@@ -1,20 +1,20 @@
-/*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
-*/
 package main
 
 import (
 	"github.com/raihankhan/jarvis/cmd"
-	"github.com/raihankhan/jarvis/database"
+	"github.com/spf13/cobra"
 	"log"
 )
 
 func main() {
-	err := database.OpenDatabase()
-	if err != nil {
-		log.Println(err)
-		return
+	var rootCmd = &cobra.Command{
+		Use:   "jarvis",
+		Short: "Jarvis is a utility tool for workstation activities.",
 	}
-	cmd.Execute()
+
+	rootCmd.AddCommand(cmd.NewAppUpdateCommand())
+
+	if err := rootCmd.Execute(); err != nil {
+		log.Fatalf("Error executing command: %v", err)
+	}
 }
