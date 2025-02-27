@@ -13,6 +13,7 @@ func main() {
 	}
 
 	rootCmd.AddCommand(cmd.NewAppUpdateCommand())
+	rootCmd.AddCommand(cmd.NewQuranVerseCommand())
 
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatalf("Error executing command: %v", err)
